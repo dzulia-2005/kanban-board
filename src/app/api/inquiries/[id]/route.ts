@@ -1,6 +1,6 @@
 import {Delay} from "@/lib/delay";
-import {InquiryPhase} from "../../../../../mockData/inquiriesData.type";
-import {Inquiries} from "../../../../../mockData/inquiriesData";
+import {InquiryPhase} from "@/mockData/inquiriesData.type";
+import {Inquiries} from "@/mockData/inquiriesData";
 import {NextResponse} from "next/server";
 
 export async function PATCH(

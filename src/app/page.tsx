@@ -1,3 +1,5 @@
+"use client"
+
 import FilterHeader from "@/components/filters/filterHeader";
 import InquiryModal from "@/components/kanban/inquiryModal";
 import KanbanBoard from "@/components/kanban/kanbanBoard";

@@ -1,5 +1,5 @@
 import {Delay} from "@/lib/delay";
-import {Inquiries} from "../../../../mockData/inquiriesData";
+import {Inquiries} from "@/mockData/inquiriesData";
 import {NextResponse} from "next/server";
 
 export async function GET(req:Request){
