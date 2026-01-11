@@ -5,6 +5,8 @@ import {InquiryPhase} from "@/api/inquiries/index.type";
 import {useQueryClient} from "@tanstack/react-query";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
+import { showErrorMessage } from "../../../utils/message";
+
 
 dayjs.extend(relativeTime);
 
@@ -31,6 +33,9 @@ const InquiryModal = () => {
                         queryKey:["get-inquiries"],
                     });
                 },
+                onError:(err)=>{
+                    showErrorMessage(err);
+                }
 
             }
         );
