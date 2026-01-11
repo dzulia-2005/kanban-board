@@ -5,7 +5,7 @@ import KanbanBoard from "@/components/kanban/kanbanBoard";
 const Home = () => {
     return(
         <main className="p-4 space-y-4">
-           <FilterHeader/>
+            <FilterHeader/>
             <KanbanBoard/>
             <InquiryModal/>
         </main>
