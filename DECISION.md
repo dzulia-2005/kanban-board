@@ -95,12 +95,3 @@
 **Reason:**
 - When running locally your project may need to be on a different port and you can change the port from /src/api/index.ts
 ---
-
-## Summary
-
-All technical decisions were made considering:
-- **Performance:** Fast and optimized application
-- **Developer Experience:** Simple and rapid development
-- **Maintainability:** Easy code maintenance and updates
-- **Type Safety:** Error prevention and code reliability
-- **Modern Stack:** Actively maintained and well-documented libraries
