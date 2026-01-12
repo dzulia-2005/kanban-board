@@ -1,7 +1,7 @@
 import axios, {CreateAxiosDefaults} from "axios";
 
 const axiosConfig:CreateAxiosDefaults = {
-    baseURL:"http://localhost:3000/api"
+    baseURL:process.env.NEXT_PUBLIC_API_BASE_URL
 }
 
 export const httpClient = axios.create(axiosConfig);
