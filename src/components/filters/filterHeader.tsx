@@ -1,9 +1,55 @@
 import {useKanbanContext} from "@/context/hooks/useKanbanContext";
-import {ChangeEvent, useCallback} from "react";
+import {ChangeEvent, useCallback, useEffect} from "react";
 import debounce from "lodash/debounce";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 const FilterHeader = () => {
     const {filters,setFilters} = useKanbanContext();
+    const router = useRouter();
+    const pathname = usePathname();
+    const searchParams = useSearchParams();
+
+    useEffect(() => {
+        const clientName = searchParams.get('clientName') || '';
+        const minValue = Number(searchParams.get('minValue')) || 0;
+        const from = searchParams.get('from') || '';
+        const to = searchParams.get('to') || '';
+
+        setFilters({ clientName, minValue, from, to });
+    }, []);
+
+    useEffect(() => {
+        const params = new URLSearchParams(searchParams.toString());
+        
+        if (filters.clientName) {
+            params.set('clientName', filters.clientName);
+        } else {
+            params.delete('clientName');
+        }
+        
+        if (filters.minValue) {
+            params.set('minValue', String(filters.minValue));
+        } else {
+            params.delete('minValue');
+        }
+        
+        if (filters.from) {
+            params.set('from', filters.from);
+        } else {
+            params.delete('from');
+        }
+        
+        if (filters.to) {
+            params.set('to', filters.to);
+        } else {
+            params.delete('to');
+        }
+
+        const queryString = params.toString();
+        const newUrl = queryString ? `${pathname}?${queryString}` : pathname;
+        
+        router.replace(newUrl, { scroll: false });
+    }, [filters, pathname, router, searchParams]);
 
     const debouncedSetClientName = useCallback(
         debounce((value:string)=>{
